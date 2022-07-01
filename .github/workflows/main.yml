@@ -5,17 +5,16 @@ on:
       - main
 jobs:
   sync:
-    name: Verify and sync data to IPFS
+    name: Yeet
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-      - name: Sync to IPFS
-        id: upload
-        uses: nymmrx/ipfs-deploy@master
+      - name: Edgeserver Upload
+        uses: lvkdotsh/edgeserver-action@v0.0.34
         with:
-          path: "./"
-          pin-name: idk_i_just_deploy_here
-          pinata-key: ${{ secrets.PINATA_KEY }}
-          pinata-secret: ${{ secrets.PINATA_SECRET }}
+            app_id: "65678405726638080"
+            server: https://api.edgeserver.io
+            token: ${{ secrets.SIGNAL_TOKEN }}
+            directory: ./
